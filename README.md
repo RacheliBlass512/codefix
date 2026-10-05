@@ -22,10 +22,9 @@ npm run dev
    |---|---|
    | `OPENAI_API_KEY` | מפתח OpenAI לצ'אט |
    | `RESEND_API_KEY` | מפתח Resend לטופס יצירת קשר |
-   | `NEXT_PUBLIC_SITE_URL` | כתובת האתר הסופית (למשל `https://codefix.co.il`) – ל-SEO ול-sitemap |
    | `CONTACT_FROM` | (לא חובה) כתובת השולח, אחרי אימות דומיין ב-Resend |
 3. **Resend:** בלי דומיין מאומת, Resend שולח רק לכתובת שאיתה נרשמת – לכן יש להירשם עם `rachelib1231@gmail.com`. אחרי חיבור דומיין, לאמת אותו ב-Resend ולעדכן `CONTACT_FROM`.
-4. אחרי חיבור הדומיין – לעדכן `NEXT_PUBLIC_SITE_URL` ולהגיש את `/sitemap.xml` ב-Google Search Console.
+4. דומיין: להוסיף ב-Vercel את `www.code-fix.co.il` כראשי ואת `code-fix.co.il` עם הפניה (308) אליו. כתובת האתר קבועה ב-`content/site.ts`. אחר כך להגיש את `/sitemap.xml` ב-Google Search Console.
 
 ## מבנה
 - `app/` – עמודים, `api/chat` (OpenAI, streaming), `api/contact` (Resend), sitemap, robots, OG image

@@ -5,7 +5,7 @@ export const site = {
   owner: "Rachel Efodi",
   ownerHe: "רחל אפודי",
   tagline: "המפתח לבעיה שלכם – בקוד",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
+  url: "https://www.code-fix.co.il",
   phone: "0548541231",
   phoneDisplay: "054-854-1231",
   phoneIntl: "+972548541231",
