@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #050a1a;
+  --color-surface: #0b1330;
+  --color-surface-2: #111b40;
+  --color-line: #1c2754;
+  --color-ink: #e6ecff;
+  --color-muted: #94a3c7;
+  --color-cyan: #2ee6e6;
+  --color-sky: #3aa8f5;
+  --color-violet: #6a5cf0;
+  --font-sans: var(--font-heebo), system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-bg); color: var(--color-ink); }
+::selection { background: color-mix(in oklab, var(--color-cyan) 35%, transparent); }
+
+:focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 3px; border-radius: 6px; }
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--color-cyan), var(--color-sky) 45%, var(--color-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-brand {
+  background: linear-gradient(100deg, var(--color-cyan), var(--color-sky) 50%, var(--color-violet));
+}
+
+/* כרטיס עם מסגרת גרדיאנט עדינה */
+@utility card {
+  position: relative;
+  border-radius: 1.25rem;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--color-surface) 92%, white 0%), var(--color-bg)) padding-box,
+    linear-gradient(140deg, color-mix(in oklab, var(--color-cyan) 40%, transparent), var(--color-line) 40%, color-mix(in oklab, var(--color-violet) 40%, transparent)) border-box;
+  border: 1px solid transparent;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+/* כפתורים */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  &:hover { transform: translateY(-2px); }
+}
+@utility btn-primary {
+  color: #041022;
+  background: linear-gradient(100deg, var(--color-cyan), var(--color-sky) 50%, var(--color-violet));
+  box-shadow: 0 8px 30px -8px color-mix(in oklab, var(--color-sky) 70%, transparent);
+  &:hover { box-shadow: 0 12px 40px -6px color-mix(in oklab, var(--color-cyan) 70%, transparent); }
+}
+@utility btn-ghost {
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+  background: color-mix(in oklab, var(--color-surface) 60%, transparent);
+  &:hover { border-color: var(--color-sky); }
+}
+
+/* הופעה בגלילה – CSS בלבד; בדפדפנים ללא תמיכה התוכן פשוט גלוי */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+  .float { animation: float 7s ease-in-out infinite; }
+  .glow-pulse { animation: glow 6s ease-in-out infinite; }
+}
+@keyframes reveal { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes float { 50% { transform: translateY(-14px); } }
+@keyframes glow { 50% { opacity: 0.55; transform: scale(1.08); } }
