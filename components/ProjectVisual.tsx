@@ -1,9 +1,10 @@
+import Image from "next/image";
 import type { ProjectVisual as Kind } from "@/content/site";
 
-// Stylized UI illustrations per project until screenshots/demos exist. Decorative only (aria-hidden).
-export function ProjectVisual({ kind, className = "" }: { kind: Kind; className?: string }) {
+// Browser frame showing the real screenshot when one exists, else a stylized UI illustration. Decorative only (aria-hidden).
+export function ProjectVisual({ kind, image, className = "" }: { kind: Kind; image?: string; className?: string }) {
   return (
-    <div aria-hidden="true" className={`relative overflow-hidden rounded-2xl border border-line bg-[#070d22] ${className}`}>
+    <div aria-hidden="true" className={`relative flex flex-col overflow-hidden rounded-2xl border border-line bg-[#070d22] ${className}`}>
       <div className="absolute -top-16 -left-10 size-48 rounded-full bg-violet/30 blur-3xl" />
       <div className="absolute -bottom-16 -right-10 size-48 rounded-full bg-cyan/20 blur-3xl" />
       <div className="relative flex items-center gap-1.5 border-b border-line/80 px-3 py-2" dir="ltr">
@@ -12,7 +13,9 @@ export function ProjectVisual({ kind, className = "" }: { kind: Kind; className?
         <span className="size-2.5 rounded-full bg-[#28c840]/80" />
         <span className="mx-auto h-4 w-1/2 rounded-full bg-line/70" />
       </div>
-      <div className="relative p-4 sm:p-5">{views[kind]}</div>
+      {image
+        ? <div className="relative flex-1"><Image src={image} alt="" fill sizes="(min-width: 1024px) 1024px, 100vw" className="object-cover object-top" /></div>
+        : <div className="relative p-4 sm:p-5">{views[kind]}</div>}
     </div>
   );
 }

@@ -9,7 +9,7 @@ export function ProjectCard({ p, wide = false }: { p: Project; wide?: boolean })
   return (
     <Link href={`/projects/${p.slug}`}
       className={`card reveal group flex flex-col p-3 transition-transform hover:-translate-y-1 ${wide ? "sm:grid sm:grid-cols-[2fr_3fr] sm:items-center" : ""}`}>
-      <ProjectVisual kind={p.visual} className="aspect-[16/10] transition-transform duration-500 group-hover:scale-[1.015]" />
+      <ProjectVisual kind={p.visual} image={p.image}className="aspect-[16/10] transition-transform duration-500 group-hover:scale-[1.015]" />
       <div className="flex flex-1 flex-col p-4">
         {wide
           ? <span className="text-sm text-muted">{p.client}</span>

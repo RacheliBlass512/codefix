@@ -168,6 +168,7 @@ export type Project = {
   highlights: string[];
   services: string[]; // service slugs
   visual: ProjectVisual;
+  image?: string; // real screenshot in /public/projects - replaces the illustration
   demoUrl?: string; // add when the demo is ready - the button appears automatically
 };
 
@@ -188,6 +189,7 @@ export const projects: Project[] = [
     highlights: ["מאגר ידע פיננסי וענפי רחב", "שאלות בשפה חופשית", "תשובות מבוססות על המידע שנאסף"],
     services: ["ai-agents"],
     visual: "agent",
+    image: "/projects/aviation-finance-agent.png",
   },
   {
     slug: "mortgage-advisor-website",
@@ -203,6 +205,7 @@ export const projects: Project[] = [
     highlights: ["עיצוב שמשדר אמינות", "מותאם למובייל", "דרכי יצירת קשר בולטות"],
     services: ["business-websites"],
     visual: "landing",
+    image: "/projects/mortgage-advisor-website.png",
   },
   {
     slug: "job-search-manager",

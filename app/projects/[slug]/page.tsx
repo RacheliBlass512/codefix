@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: Props) {
       </section>
 
       <div className="mx-auto max-w-5xl px-4">
-        <ProjectVisual kind={p.visual} className="reveal aspect-[16/9] sm:aspect-[2/1]" />
+        <ProjectVisual kind={p.visual} image={p.image}className="reveal aspect-[16/9] sm:aspect-[2/1]" />
 
         <div className="mt-14 grid gap-10 md:grid-cols-[1fr_18rem]">
           <div className="space-y-10">
