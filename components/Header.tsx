@@ -14,6 +14,12 @@ export function Header() {
 
   useEffect(() => setOpen(false), [path]);
   useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -23,6 +29,9 @@ export function Header() {
   const active = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
 
   return (
+    <>
+    {/* Outside the header: backdrop-blur would make it the containing block for this fixed element */}
+    {open && <div className="fixed inset-0 z-30 md:hidden" onClick={() => setOpen(false)} aria-hidden="true" />}
     <header className={`fixed inset-x-0 top-0 z-40 transition-colors ${scrolled || open ? "border-b border-line/70 bg-bg/85 backdrop-blur-lg" : ""}`}>
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-3" aria-label="Code Fix – דף הבית">
@@ -56,7 +65,7 @@ export function Header() {
           <ul className="flex flex-col pt-2">
             {nav.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} aria-current={active(n.href) ? "page" : undefined}
+                <Link href={n.href} onClick={() => setOpen(false)} aria-current={active(n.href) ? "page" : undefined}
                   className={`block rounded-lg px-3 py-3 text-lg ${active(n.href) ? "text-cyan" : "text-ink"}`}>{n.label}</Link>
               </li>
             ))}
@@ -64,5 +73,6 @@ export function Header() {
         </nav>
       )}
     </header>
+    </>
   );
 }
