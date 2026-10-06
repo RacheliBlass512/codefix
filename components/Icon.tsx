@@ -1,7 +1,7 @@
 import type { IconName } from "@/content/site";
 
 // Line icons (24x24), lucide-style - no external dependency
-const paths: Record<IconName | "arrow" | "phone" | "mail" | "github" | "whatsapp" | "check" | "close" | "send" | "menu" | "external", string> = {
+const paths: Record<IconName | "arrow" | "phone" | "mail" | "github" | "check" | "close" | "send" | "menu" | "external", string> = {
   bolt: "M13 2 4 14h7l-1 8 9-12h-7l1-8z",
   bot: "M12 8V4H8 M4 8h16v12H4z M2 14h2 M20 14h2 M9 13v2 M15 13v2",
   sparkle: "M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z M19 3v4 M17 5h4 M5 17v4 M3 19h4",
@@ -20,7 +20,6 @@ const paths: Record<IconName | "arrow" | "phone" | "mail" | "github" | "whatsapp
   phone: "M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z",
   mail: "M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M22 6l-10 7L2 6",
   github: "M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.3-.3-2.5-1-3.5.3-1.2.3-2.4 0-3.5 0 0-1 0-3 1.5-2.6-.5-5.4-.5-8 0C6 2 5 2 5 2c-.3 1.1-.3 2.3 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.4.5-.7 1-.8 1.6-.2.6-.3 1.3-.2 1.9v4 M9 18c-4.5 2-5-2-7-2",
-  whatsapp: "M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z M9 10c0 3 2 5 5 5l1.5-1.5-2-1-1 .8c-.8-.3-1.5-1-1.8-1.8l.8-1-1-2L9 10z",
   check: "M20 6 9 17l-5-5",
   close: "M18 6 6 18 M6 6l12 12",
   send: "M22 2 11 13 M22 2l-7 20-4-9-9-4z",

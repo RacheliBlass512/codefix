@@ -10,11 +10,11 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: Request) {
   if (!rateLimit(req, "chat", 30, 10 * 60_000)) {
-    return new Response("הגעתם למגבלת ההודעות לזמן הקרוב. אפשר להמשיך בוואטסאפ או בטופס יצירת הקשר 🙂", { status: 429 });
+    return new Response("הגעתם למגבלת ההודעות לזמן הקרוב. אפשר להמשיך בטלפון או בטופס יצירת הקשר 🙂", { status: 429 });
   }
   if (!process.env.OPENAI_API_KEY) {
     console.error("OPENAI_API_KEY is not set");
-    return new Response("הצ'אט עדיין לא מחובר. בינתיים אפשר ליצור קשר בטלפון, בוואטסאפ או בטופס.", { status: 503 });
+    return new Response("הצ'אט עדיין לא מחובר. בינתיים אפשר ליצור קשר בטלפון או בטופס.", { status: 503 });
   }
 
   const body = await req.json().catch(() => null);
