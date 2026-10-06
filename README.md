@@ -1,32 +1,32 @@
-# Code Fix – אתר תדמית
+# Code Fix – Business Website
 
-Next.js 16 (App Router) + Tailwind 4, לפריסה ב-Vercel. אפיון: `docs/`.
+Next.js 16 (App Router) + Tailwind 4, deployed on Vercel. Spec: `docs/`.
 
-## הרצה מקומית
+## Running locally
 ```bash
 npm install
-cp .env.example .env.local   # ולמלא מפתחות
+cp .env.example .env.local   # then fill in the keys
 npm run dev
 ```
 
-## עריכת תוכן
-כל התוכן נמצא ב-`content/site.ts`: שירותים, פרויקטים, פרטי קשר, תהליך עבודה.
-העמודים, ה-sitemap והצ'אט נבנים ממנו – משנים במקום אחד.
+## Editing content
+All content lives in `content/site.ts`: services, projects, contact details, work process.
+The pages, sitemap and chat are built from it, so you only change it in one place.
 
-**קישור לדמו של פרויקט:** להוסיף `demoUrl: "https://..."` לפרויקט – כפתור "לצפייה בדמו" יופיע אוטומטית.
+**Project demo link:** add `demoUrl: "https://..."` to a project and a "View demo" button appears automatically.
 
-## פריסה ל-Vercel
-1. להעלות ל-GitHub ולייבא ב-Vercel (Next.js מזוהה אוטומטית).
-2. להגדיר Environment Variables:
-   | משתנה | מה זה |
+## Deploying to Vercel
+1. Push to GitHub and import it in Vercel (Next.js is detected automatically).
+2. Set the Environment Variables:
+   | Variable | What it is |
    |---|---|
-   | `OPENAI_API_KEY` | מפתח OpenAI לצ'אט |
-   | `RESEND_API_KEY` | מפתח Resend לטופס יצירת קשר |
-   | `CONTACT_FROM` | (לא חובה) כתובת השולח, אחרי אימות דומיין ב-Resend |
-3. **Resend:** בלי דומיין מאומת, Resend שולח רק לכתובת שאיתה נרשמת – לכן יש להירשם עם `rachelib1231@gmail.com`. אחרי חיבור דומיין, לאמת אותו ב-Resend ולעדכן `CONTACT_FROM`.
-4. דומיין: להוסיף ב-Vercel את `www.code-fix.co.il` כראשי ואת `code-fix.co.il` עם הפניה (308) אליו. כתובת האתר קבועה ב-`content/site.ts`. אחר כך להגיש את `/sitemap.xml` ב-Google Search Console.
+   | `OPENAI_API_KEY` | OpenAI key for the chat |
+   | `RESEND_API_KEY` | Resend key for the contact form |
+   | `CONTACT_FROM` | (optional) sender address, once a domain is verified in Resend |
+3. **Resend:** without a verified domain, Resend only sends to the address you signed up with, so sign up with `rachelib1231@gmail.com`. Once a domain is connected, verify it in Resend and update `CONTACT_FROM`.
+4. Domain: in Vercel, add `www.code-fix.co.il` as the primary domain and `code-fix.co.il` with a redirect (308) to it. The site URL is set in `content/site.ts`. Then submit `/sitemap.xml` in Google Search Console.
 
-## מבנה
-- `app/` – עמודים, `api/chat` (OpenAI, streaming), `api/contact` (Resend), sitemap, robots, OG image
-- `components/` – Header, Footer, ChatWidget, ContactForm, ProjectVisual (איורי UI לפרויקטים)
-- `lib/` – system prompt לצ'אט, הגבלת קצב
+## Structure
+- `app/` – pages, `api/chat` (OpenAI, streaming), `api/contact` (Resend), sitemap, robots, OG image
+- `components/` – Header, Footer, ChatWidget, ContactForm, ProjectVisual (UI illustrations for projects)
+- `lib/` – chat system prompt, rate limiting
