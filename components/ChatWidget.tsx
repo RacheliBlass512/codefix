@@ -113,7 +113,7 @@ export function ChatWidget() {
 
           <form onSubmit={(e) => { e.preventDefault(); send(input); }} className="flex gap-2 border-t border-line p-3">
             <input ref={inputRef} value={input} onChange={(e) => setInput(e.target.value)} maxLength={1000} placeholder="כתבו שאלה..." aria-label="ההודעה שלכם"
-              className="flex-1 rounded-full border border-line bg-bg px-4 py-2.5 text-[15px] placeholder:text-muted/60 focus:border-sky focus:outline-none" />
+              className="flex-1 rounded-full border border-line bg-bg px-4 py-2.5 text-base placeholder:text-muted/60 focus:border-sky focus:outline-none" />
             <button type="submit" disabled={busy || !input.trim()} aria-label="שליחה" className="btn-primary grid size-11 shrink-0 place-items-center rounded-full disabled:opacity-40">
               <Icon name="send" className="size-5 -scale-x-100" />
             </button>

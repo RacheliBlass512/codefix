@@ -14,8 +14,15 @@
   --font-mono: var(--font-mono-jb), ui-monospace, monospace;
 }
 
-html { scroll-behavior: smooth; }
+html { color-scheme: dark; -webkit-tap-highlight-color: transparent; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { background: var(--color-bg); color: var(--color-ink); }
+
+/* Tailwind v4 dropped the pointer cursor on buttons */
+@layer base {
+  button:not(:disabled), [role="button"], summary, label[for] { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+}
 ::selection { background: color-mix(in oklab, var(--color-cyan) 35%, transparent); }
 
 :focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 3px; border-radius: 6px; }
@@ -55,14 +62,13 @@ body { background: var(--color-bg); color: var(--color-ink); }
   border-radius: 999px;
   padding: 0.8rem 1.6rem;
   font-weight: 700;
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-  &:hover { transform: translateY(-2px); }
+  transition: transform 0.2s, background-color 0.2s;
+  &:hover:not(:disabled) { transform: translateY(-2px); }
 }
 @utility btn-primary {
   color: #041022;
   background: linear-gradient(100deg, var(--color-cyan), var(--color-sky) 50%, var(--color-violet));
   box-shadow: 0 8px 30px -8px color-mix(in oklab, var(--color-sky) 70%, transparent);
-  &:hover { box-shadow: 0 12px 40px -6px color-mix(in oklab, var(--color-cyan) 70%, transparent); }
 }
 @utility btn-ghost {
   color: var(--color-ink);
