@@ -1,6 +1,6 @@
 import type { IconName } from "@/content/site";
 
-// אייקונים בקו (24x24), בסגנון lucide – בלי תלות חיצונית
+// Line icons (24x24), lucide-style - no external dependency
 const paths: Record<IconName | "arrow" | "phone" | "mail" | "github" | "whatsapp" | "check" | "close" | "send" | "menu" | "external", string> = {
   bolt: "M13 2 4 14h7l-1 8 9-12h-7l1-8z",
   bot: "M12 8V4H8 M4 8h16v12H4z M2 14h2 M20 14h2 M9 13v2 M15 13v2",

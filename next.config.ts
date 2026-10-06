@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
 
-// אינדיקטור הפיתוח של Next זז ימינה כדי לא להסתיר את כפתורי הצ'אט/וואטסאפ (פיתוח בלבד)
+// Move the Next dev indicator right so it does not cover the chat/WhatsApp buttons (dev only)
 const config: NextConfig = { devIndicators: { position: "bottom-right" } };
 export default config;

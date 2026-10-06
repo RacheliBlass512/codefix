@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
   if (!body || typeof body !== "object") return Response.json({ error: "בקשה לא תקינה" }, { status: 400 });
 
-  // honeypot: בוט מילא שדה מוסתר – מחזירים הצלחה ולא שולחים
+  // honeypot: a bot filled the hidden field - return success without sending
   if (str(body.company, 100)) return Response.json({ ok: true });
 
   const name = str(body.name, 100);

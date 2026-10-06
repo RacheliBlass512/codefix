@@ -1,5 +1,5 @@
-// ponytail: מונה בזיכרון לכל מופע serverless – מספיק לבלימת ספאם באתר תדמית.
-// אם יש ניצול לרעה אמיתי: לעבור ל-Upstash Ratelimit / Vercel Firewall.
+// ponytail: in-memory counter per serverless instance - enough to curb spam on a brochure site.
+// If real abuse shows up: move to Upstash Ratelimit / Vercel Firewall.
 const hits = new Map<string, { count: number; reset: number }>();
 
 export function rateLimit(req: Request, key: string, limit: number, windowMs: number) {

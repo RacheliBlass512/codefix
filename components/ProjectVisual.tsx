@@ -1,12 +1,11 @@
 import type { ProjectVisual as Kind } from "@/content/site";
 
-// איורי UI מסוגננים לכל פרויקט – עד שיהיו צילומי מסך/דמו. דקורטיביים בלבד (aria-hidden).
+// Stylized UI illustrations per project until screenshots/demos exist. Decorative only (aria-hidden).
 export function ProjectVisual({ kind, className = "" }: { kind: Kind; className?: string }) {
   return (
     <div aria-hidden="true" className={`relative overflow-hidden rounded-2xl border border-line bg-[#070d22] ${className}`}>
       <div className="absolute -top-16 -left-10 size-48 rounded-full bg-violet/30 blur-3xl" />
       <div className="absolute -bottom-16 -right-10 size-48 rounded-full bg-cyan/20 blur-3xl" />
-      {/* מסגרת חלון */}
       <div className="relative flex items-center gap-1.5 border-b border-line/80 px-3 py-2" dir="ltr">
         <span className="size-2.5 rounded-full bg-[#ff5f57]/80" />
         <span className="size-2.5 rounded-full bg-[#febc2e]/80" />

@@ -14,8 +14,8 @@ const link = (key: number, href: string, label: string) => (
   <a key={key} href={href} target={href.startsWith(site.url) ? undefined : "_blank"} rel="noopener" className="break-all text-sky underline">{label}</a>
 );
 
-// markdown מינימלי: **מודגש**, [טקסט](קישור) וכתובות URL חשופות
-// ponytail: בלי רשימות/כותרות/קוד, להוסיף react-markdown אם נצטרך
+// Minimal markdown: **bold**, [text](link) and bare URLs
+// ponytail: no lists/headings/code, add react-markdown if needed
 function Linkify({ text }: { text: string }) {
   return text.split(/(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\*\*[^*]+\*\*|https?:\/\/[^\s)*]+)/g).map((part, i) => {
     const md = part.match(/^\[([^\]]+)\]\((.+)\)$/);
@@ -55,7 +55,7 @@ export function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history.slice(1) }), // בלי הודעת הפתיחה
+        body: JSON.stringify({ messages: history.slice(1) }), // without the opening message
       });
       if (!res.ok || !res.body) return update(await res.text());
       const reader = res.body.getReader();
@@ -77,7 +77,6 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* כפתורים צפים */}
       <div className="fixed bottom-5 left-5 z-50">
         <button onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="chat-panel" aria-label={open ? "סגירת הצ'אט" : "פתיחת צ'אט עם העוזרת הדיגיטלית"}
           className="btn-primary relative flex h-14 items-center gap-2.5 rounded-full px-5 font-bold ring-2 ring-white/25 transition-transform hover:scale-105">

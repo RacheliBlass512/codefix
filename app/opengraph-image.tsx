@@ -6,7 +6,7 @@ export const alt = "Code Fix – Rachel Efodi, Full Stack Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// ponytail: טקסט באנגלית כי פונט ברירת המחדל של next/og לא תומך בעברית
+// ponytail: English text because the default next/og font does not support Hebrew
 export default async function OgImage() {
   const logo = `data:image/png;base64,${(await readFile(join(process.cwd(), "public/logo.png"))).toString("base64")}`;
   return new ImageResponse(

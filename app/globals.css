@@ -31,7 +31,6 @@ body { background: var(--color-bg); color: var(--color-ink); }
   background: linear-gradient(100deg, var(--color-cyan), var(--color-sky) 50%, var(--color-violet));
 }
 
-/* כרטיס עם מסגרת גרדיאנט עדינה */
 @utility card {
   position: relative;
   border-radius: 1.25rem;
@@ -48,7 +47,6 @@ body { background: var(--color-bg); color: var(--color-ink); }
   mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
 }
 
-/* כפתורים */
 @utility btn {
   display: inline-flex;
   align-items: center;
@@ -73,7 +71,7 @@ body { background: var(--color-bg); color: var(--color-ink); }
   &:hover { border-color: var(--color-sky); }
 }
 
-/* הופעה בגלילה – CSS בלבד; בדפדפנים ללא תמיכה התוכן פשוט גלוי */
+/* Scroll reveal - CSS only; browsers without support just show the content */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .reveal {

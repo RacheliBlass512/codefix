@@ -60,7 +60,7 @@ export function ContactForm() {
         <span className="text-sm font-bold">הודעה *</span>
         <textarea name="message" required maxLength={3000} rows={5} className={`${field} resize-y`} placeholder="ספרו לי בקצרה על העסק ועל מה שאתם צריכים..." />
       </label>
-      {/* honeypot נגד בוטים – מוסתר ממשתמשים */}
+      {/* honeypot against bots - hidden from users */}
       <input name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
       {status === "error" && <p role="alert" className="text-sm text-red-400 sm:col-span-2">{error}. אפשר גם להתקשר.</p>}

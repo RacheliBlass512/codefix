@@ -1,4 +1,4 @@
-// מקור אמת יחיד לתוכן האתר: עמודים, sitemap והצ'אט נבנים מכאן.
+// Single source of truth for site content: pages, sitemap and chat are built from here.
 
 export const site = {
   name: "Code Fix",
@@ -126,7 +126,7 @@ export type Project = {
   highlights: string[];
   services: string[]; // service slugs
   visual: ProjectVisual;
-  demoUrl?: string; // יש להוסיף כשהדמו מוכן – הכפתור יופיע אוטומטית
+  demoUrl?: string; // add when the demo is ready - the button appears automatically
 };
 
 export const projects: Project[] = [

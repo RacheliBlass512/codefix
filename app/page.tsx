@@ -14,7 +14,6 @@ const promises = [
 export default function Home() {
   return (
     <>
-      {/* HERO */}
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="glow-pulse absolute -top-32 right-1/4 -z-10 h-96 w-96 rounded-full bg-violet/30 blur-3xl" />
@@ -37,7 +36,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ויזואל: הלוגו + קטע קוד */}
           <div className="relative mx-auto w-full max-w-md">
             <div className="float relative mx-auto w-3/4">
               <div className="absolute inset-0 rounded-full bg-sky/30 blur-3xl" />
@@ -61,7 +59,6 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* למי */}
       <section className="mx-auto max-w-6xl px-4 py-20">
         <SectionHead tag="for-who" title={<>פתרון בגודל <span className="text-gradient">של העסק שלכם</span></>} text="לא משנה אם אתם עסק של אדם אחד או חברה עם מאות משתמשים – הפתרון נבנה בדיוק למידה שלכם." />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -80,7 +77,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* שירותים */}
       <section className="relative py-20">
         <div className="absolute inset-x-0 top-1/3 -z-10 h-80 bg-gradient-to-l from-violet/10 via-sky/5 to-cyan/10 blur-3xl" />
         <div className="mx-auto max-w-6xl px-4">
@@ -103,7 +99,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* פרויקטים */}
       <section className="mx-auto max-w-6xl px-4 py-20">
         <SectionHead tag="projects" title={<>פרויקטים <span className="text-gradient">נבחרים</span></>} text="מסוכן AI לאנליסטים פיננסיים ועד פלטפורמה עירונית בזמן אמת." />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -111,7 +106,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* תהליך */}
       <section className="mx-auto max-w-6xl px-4 py-20">
         <SectionHead tag="process" title={<>איך <span className="text-gradient">עובדים איתי</span></>} text="תהליך פשוט ושקוף, בלי הפתעות." />
         <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

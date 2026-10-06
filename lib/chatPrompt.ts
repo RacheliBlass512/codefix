@@ -1,6 +1,6 @@
 import { workSteps, projects, services, site } from "@/content/site";
 
-// ה-system prompt נבנה מקובץ התוכן – שינוי תוכן באתר מעדכן אוטומטית גם את הצ'אט.
+// The system prompt is built from the content file, so site content changes update the chat automatically.
 export function buildSystemPrompt() {
   const servicesText = services
     .map((s) => `- ${s.title} (${site.url}/services#${s.slug}): ${s.description} מתאים ל: ${s.forWho} מה מקבלים: ${s.gets.join("; ")}.`)

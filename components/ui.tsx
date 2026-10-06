@@ -8,7 +8,6 @@ export function Logo({ size = 40 }: { size?: number }) {
   );
 }
 
-/** כותרת סקשן: תגית קוד קטנה + כותרת + טקסט */
 export function SectionHead({ tag, title, text, as: H = "h2", center = true }: {
   tag: string; title: React.ReactNode; text?: string; as?: "h1" | "h2"; center?: boolean;
 }) {
