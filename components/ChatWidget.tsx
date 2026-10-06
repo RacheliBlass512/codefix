@@ -10,15 +10,20 @@ type Msg = { role: "user" | "assistant"; content: string };
 const greeting: Msg = { role: "assistant", content: "היי! 👋 אני העוזרת הדיגיטלית של Code Fix. אפשר לשאול אותי על השירותים, הפרויקטים או איך יוצרים קשר." };
 const suggestions = ["אילו שירותים את מציעה?", "ספרי לי על סוכן ה-AI", "כמה עולה אתר תדמית?", "איך יוצרים קשר?"];
 
-// הופך כתובות URL בתשובה לקישורים לחיצים
+const link = (key: number, href: string, label: string) => (
+  <a key={key} href={href} target={href.startsWith(site.url) ? undefined : "_blank"} rel="noopener" className="break-all text-sky underline">{label}</a>
+);
+
+// markdown מינימלי: **מודגש**, [טקסט](קישור) וכתובות URL חשופות
+// ponytail: בלי רשימות/כותרות/קוד, להוסיף react-markdown אם נצטרך
 function Linkify({ text }: { text: string }) {
-  return text.split(/(https?:\/\/[^\s)]+)/g).map((part, i) =>
-    /^https?:\/\//.test(part) ? (
-      <a key={i} href={part} target={part.startsWith(site.url) ? undefined : "_blank"} rel="noopener" className="break-all text-sky underline">{part.replace(/^https?:\/\//, "")}</a>
-    ) : (
-      part
-    ),
-  );
+  return text.split(/(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\*\*[^*]+\*\*|https?:\/\/[^\s)*]+)/g).map((part, i) => {
+    const md = part.match(/^\[([^\]]+)\]\((.+)\)$/);
+    if (md) return link(i, md[2], md[1]);
+    if (/^https?:\/\//.test(part)) return link(i, part, part.replace(/^https?:\/\//, ""));
+    if (/^\*\*.+\*\*$/.test(part)) return <strong key={i}>{part.slice(2, -2)}</strong>;
+    return part;
+  });
 }
 
 export function ChatWidget() {
