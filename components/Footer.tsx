@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { nav, services, site } from "@/content/site";
+import { nav, site, tracks } from "@/content/site";
 import { Logo } from "./ui";
 import { Icon } from "./Icon";
 
@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <h2 className="font-bold">שירותים</h2>
           <ul className="mt-4 space-y-2 text-muted">
-            {services.map((s) => <li key={s.slug}><Link href={`/services#${s.slug}`} className="hover:text-ink">{s.title}</Link></li>)}
+            {tracks.map((t) => <li key={t.slug}><Link href={`/services#${t.slug}`} className="hover:text-ink">{t.title}</Link></li>)}
           </ul>
         </div>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects, serviceBySlug } from "@/content/site";
+import { projects, serviceBySlug, trackBySlug } from "@/content/site";
 import { Icon } from "@/components/Icon";
 import { CtaBand } from "@/components/ui";
 import { ProjectVisual } from "@/components/ProjectVisual";
@@ -24,6 +24,7 @@ export default async function ProjectPage({ params }: Props) {
   if (i < 0) notFound();
   const p = projects[i];
   const next = projects[(i + 1) % projects.length];
+  const track = trackBySlug(p.track);
 
   const story = [
     { title: "האתגר", text: p.challenge },
@@ -36,11 +37,11 @@ export default async function ProjectPage({ params }: Props) {
       <section className="relative overflow-hidden pt-32 pb-12">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-5xl px-4">
-          <Link href="/projects" className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink">
-            <Icon name="arrow" className="size-4 rotate-180" /> כל הפרויקטים
+          <Link href={`/services#${track.slug}`} className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink">
+            <Icon name="arrow" className="size-4 rotate-180" /> {track.title}
           </Link>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 text-xs font-bold text-cyan">{p.category}</span>
+            <span className="rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 text-xs font-bold text-cyan">{track.title}</span>
             <span className="text-sm text-muted">{p.client}</span>
           </div>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">{p.title}</h1>

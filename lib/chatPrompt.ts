@@ -1,12 +1,14 @@
-import { workSteps, projects, services, site } from "@/content/site";
+import { workSteps, projects, services, site, tracks, trackBySlug } from "@/content/site";
 
 // The system prompt is built from the content file, so site content changes update the chat automatically.
 export function buildSystemPrompt() {
-  const servicesText = services
-    .map((s) => `- ${s.title} (${site.url}/services#${s.slug}): ${s.description} מתאים ל: ${s.forWho} מה מקבלים: ${s.gets.join("; ")}.`)
-    .join("\n");
+  const servicesText = tracks
+    .map((t) => `### ${t.title} (${site.url}/services#${t.slug})\n${t.description} מתאים ל: ${t.forWho}\n` +
+      services.filter((s) => s.track === t.slug)
+        .map((s) => `- ${s.title}: ${s.description} מה מקבלים: ${s.gets.join("; ")}.`).join("\n"))
+    .join("\n\n");
   const projectsText = projects
-    .map((p) => `- ${p.title} (${site.url}/projects/${p.slug}) [${p.category}]: ${p.summary} אתגר: ${p.challenge} פתרון: ${p.solution} תוצאה: ${p.result}`)
+    .map((p) => `- ${p.title} (${site.url}/projects/${p.slug}) [${trackBySlug(p.track).title}]: ${p.summary} אתגר: ${p.challenge} פתרון: ${p.solution} תוצאה: ${p.result}`)
     .join("\n");
 
   return `את העוזרת הדיגיטלית של Code Fix – העסק של ${site.ownerHe} (${site.owner}), מתכנתת Full Stack.

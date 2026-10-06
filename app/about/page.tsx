@@ -36,7 +36,7 @@ export default function AboutPage() {
             <p dir="ltr" className="text-right font-mono text-sm text-cyan/80">{"<about />"}</p>
             <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">נעים להכיר, <span className="text-gradient">אני רחל</span></h1>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink/85">
-              <p>אני מתכנתת Full Stack, ו-Code Fix הוא המקום שבו אני פוגשת עסקים עם בעיה – ויוצאת איתם עם פתרון.</p>
+              <p>אני מתכנתת Full Stack עם 5 שנות ניסיון בפיתוח, ו-Code Fix הוא המקום שבו אני פוגשת עסקים עם בעיה – ויוצאת איתם עם פתרון.</p>
               <p>אני מאמינה שטכנולוגיה טובה היא כזו שלא צריך לחשוב עליה: האתר מביא פניות, התהליכים רצים לבד, והמערכת פשוט עובדת. בין אם מדובר באתר תדמית לעסק קטן, בסוכן AI שעונה לאנליסטים פיננסיים או בפלטפורמה שמעבדת אלפי רכיבים בזמן אמת – הגישה זהה: להבין לעומק, ולבנות נכון.</p>
             </div>
             <a href={site.github} target="_blank" rel="noopener" className="btn btn-ghost mt-8"><Icon name="github" className="size-5" /> הקוד שלי ב-GitHub</a>
@@ -45,16 +45,6 @@ export default function AboutPage() {
             <div className="absolute inset-0 rounded-full bg-violet/30 blur-3xl" />
             <Image src="/logo.png" alt="הלוגו של Code Fix" width={400} height={400} className="relative rounded-full" />
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-4 py-12">
-        <div className="card reveal p-8 text-center sm:p-12">
-          <p dir="ltr" className="font-mono text-2xl text-cyan">{"< 🔑 >"}</p>
-          <h2 className="mt-4 text-2xl font-extrabold sm:text-3xl">למה <span dir="ltr">Code Fix</span>?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-            בלוגו יש מפתח בין שני סוגרי קוד. זה בדיוק מה שאני עושה: לכל בעיה עסקית יש מפתח – והוא נמצא בקוד. התפקיד שלי הוא למצוא אותו, ולהתאים אותו בדיוק למנעול שלכם.
-          </p>
         </div>
       </section>
 
