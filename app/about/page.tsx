@@ -29,7 +29,7 @@ const values: { title: string; text: string }[] = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20">
+      <section className="relative overflow-hidden pt-32 pb-6 md:pb-8">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 md:grid-cols-[1fr_20rem]">
           <div>
@@ -41,14 +41,14 @@ export default function AboutPage() {
             </div>
             <a href={site.github} target="_blank" rel="noopener" className="btn btn-ghost mt-8"><Icon name="github" className="size-5" /> הקוד שלי ב-GitHub</a>
           </div>
-          <div className="float relative mx-auto w-64 md:w-full">
+          <div className="float relative mx-auto hidden w-full md:block">
             <div className="absolute inset-0 rounded-full bg-violet/30 blur-3xl" />
             <Image src="/logo.png" alt="הלוגו של Code Fix" width={400} height={400} className="relative rounded-full" />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="mx-auto max-w-6xl px-4 py-6 md:py-8">
         <SectionHead tag="expertise" title={<>תחומי <span className="text-gradient">התמחות</span></>} />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {expertise.map((e) => (
@@ -61,7 +61,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="mx-auto max-w-6xl px-4 pt-6 md:pt-8">
         <SectionHead tag="approach" title={<>הגישה <span className="text-gradient">שלי</span></>} />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {values.map((v) => (

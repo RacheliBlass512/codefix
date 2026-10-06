@@ -34,7 +34,7 @@ export function PageHero({ tag, title, text }: { tag: string; title: React.React
 
 export function CtaBand() {
   return (
-    <section className="px-4 py-24">
+    <section className="px-4 pt-12 pb-20 md:pt-16 md:pb-24">
       <div className="card reveal relative mx-auto max-w-5xl overflow-hidden px-6 py-14 text-center sm:px-14">
         <div className="absolute -top-24 left-1/2 h-48 w-[30rem] -translate-x-1/2 rounded-full bg-sky/25 blur-3xl" />
         <p dir="ltr" className="font-mono text-sm text-cyan/80">{"fix(business): let's talk"}</p>
