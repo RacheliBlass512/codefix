@@ -8,6 +8,16 @@ export function Logo({ size = 40 }: { size?: number }) {
   );
 }
 
+// pulsing "live" indicator for projects with a running site
+export function LiveDot() {
+  return (
+    <span className="relative flex size-2">
+      <span className="absolute inline-flex size-full rounded-full bg-cyan opacity-60 motion-safe:animate-ping" />
+      <span className="relative inline-flex size-2 rounded-full bg-cyan" />
+    </span>
+  );
+}
+
 export function SectionHead({ tag, title, text, as: H = "h2", center = true }: {
   tag: string; title: React.ReactNode; text?: string; as?: "h1" | "h2"; center?: boolean;
 }) {

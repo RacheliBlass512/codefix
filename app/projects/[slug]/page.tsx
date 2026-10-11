@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, serviceBySlug, trackBySlug } from "@/content/site";
 import { Icon } from "@/components/Icon";
-import { CtaBand } from "@/components/ui";
+import { CtaBand, LiveDot } from "@/components/ui";
 import { ProjectVisual } from "@/components/ProjectVisual";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -46,9 +46,12 @@ export default async function ProjectPage({ params }: Props) {
           </div>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">{p.title}</h1>
           <p className="mt-5 max-w-3xl text-xl leading-relaxed text-muted">{p.summary}</p>
-          {p.demoUrl && (
-            <a href={p.demoUrl} target="_blank" rel="noopener" className="btn btn-primary mt-8">
-              לצפייה בדמו <Icon name="external" className="size-5" />
+          {p.liveUrl && (
+            <a href={p.liveUrl} target="_blank" rel="noopener"
+              className="group mt-8 inline-flex items-center gap-3 rounded-full border border-cyan/30 bg-cyan/5 py-2 ps-4 pe-3 transition-colors hover:border-cyan/60 hover:bg-cyan/10">
+              <LiveDot />
+              <span className="font-bold">למעבר לאתר</span>
+              <Icon name="external" className="size-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           )}
         </div>

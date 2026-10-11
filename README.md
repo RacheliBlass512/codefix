@@ -13,7 +13,7 @@ npm run dev
 All content lives in `content/site.ts`: services, projects, contact details, work process.
 The pages, sitemap and chat are built from it, so you only change it in one place.
 
-**Project demo link:** add `demoUrl: "https://..."` to a project and a "View demo" button appears automatically.
+**Project live link:** add `liveUrl: "https://..."` to a project and a "למעבר לאתר" link appears on its card and page.
 
 ## Deploying to Vercel
 1. Push to GitHub and import it in Vercel (Next.js is detected automatically).

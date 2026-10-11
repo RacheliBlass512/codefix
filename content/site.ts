@@ -169,7 +169,7 @@ export type Project = {
   services: string[]; // service slugs
   visual: ProjectVisual;
   image?: string; // real screenshot in /public/projects - replaces the illustration
-  demoUrl?: string; // add when the demo is ready - the button appears automatically
+  liveUrl?: string; // live site - a "למעבר לאתר" link appears on the card and the project page
 };
 
 export const projects: Project[] = [
@@ -190,6 +190,7 @@ export const projects: Project[] = [
     services: ["ai-agents"],
     visual: "agent",
     image: "/projects/aviation-finance-agent.png",
+    liveUrl: "https://airport-analyst-rachel.azurewebsites.net/",
   },
   {
     slug: "mortgage-advisor-website",
