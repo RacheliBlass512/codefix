@@ -207,6 +207,7 @@ export const projects: Project[] = [
     services: ["business-websites"],
     visual: "landing",
     image: "/projects/mortgage-advisor-website.png",
+    liveUrl: "https://mashkanta-fix.co.il/",
   },
   {
     slug: "job-search-manager",
